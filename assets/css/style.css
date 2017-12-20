@@ -1,3 +1,19 @@
-h1 {
-	background-color: red;
+body {
+	padding-top: 50px;
+	background-color: #8dc98f;
 }
+
+
+.jumbotron {
+	text-align: center;
+
+}
+
+.panel-heading {
+	font-weight: bold;
+}
+
+th {
+	font-weight: bold;
+}
+
