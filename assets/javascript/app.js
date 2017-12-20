@@ -33,7 +33,7 @@ $("#submitInfo").on("click", function(event) {
 	var trainTime = $("#timeInput").val().trim();
 	var frequency = $("#frequencyInput").val().trim();
 
-
+	//STEP 3: PUSHING TO FIREBASE
 	//creating an object that will push the values to the database
 	var newTrain = {
 		name: trainName,
@@ -65,8 +65,7 @@ $("#submitInfo").on("click", function(event) {
 		console.log(snapshot.val().time);
 		console.log(snapshot.val().frequency);
 
-		//sending to the html file
-
+		//STEP 4: DISPLAY INPUT ON HTML TABLE
 		//create variables
 		var nameT = snapshot.val().name;
 		var destinationT =snapshot.val().destination;
@@ -75,17 +74,7 @@ $("#submitInfo").on("click", function(event) {
 		//dynamically create a new row that will hold the information
 		$("#train-info > tbody").append("<tr><td>" + nameT + "</td><td>" + destinationT + "</td><td>" + freqT + "</td></tr>");
 
-
-		
-
-		// $("#full-member-list").append("<div class='well'><span id='name'> " + childSnapshot.val().name +
-  //       " </span><span id='email'> " + childSnapshot.val().email +
-  //       " </span><span id='age'> " + childSnapshot.val().age +
-  //       " </span><span id='comment'> " + childSnapshot.val().comment + " </span></div>");
-
-
-
-	});
+	});//closing child added
 
 
 
