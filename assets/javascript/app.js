@@ -59,10 +59,30 @@ $("#submitInfo").on("click", function(event) {
 		//checking if it works, this will give the child
 		console.log(snapshot.val());
 
-		// //sending to the html file
-		// $("#train-name").text(train-name);
-		// $("#destination").text(train-name);
-		// $("#frequency").text(train-name);
+		//console logging each value to check
+		console.log(snapshot.val().name);
+		console.log(snapshot.val().destination);
+		console.log(snapshot.val().time);
+		console.log(snapshot.val().frequency);
+
+		//sending to the html file
+
+		//create variables
+		var nameT = snapshot.val().name;
+		var destinationT =snapshot.val().destination;
+		var freqT = snapshot.val().frequency;
+
+		//dynamically create a new row that will hold the information
+		$("#train-info > tbody").append("<tr><td>" + nameT + "</td><td>" + destinationT + "</td><td>" + freqT + "</td></tr>");
+
+
+		
+
+		// $("#full-member-list").append("<div class='well'><span id='name'> " + childSnapshot.val().name +
+  //       " </span><span id='email'> " + childSnapshot.val().email +
+  //       " </span><span id='age'> " + childSnapshot.val().age +
+  //       " </span><span id='comment'> " + childSnapshot.val().comment + " </span></div>");
+
 
 
 	});
@@ -75,5 +95,5 @@ $("#submitInfo").on("click", function(event) {
 });//closing the on-click function
 
 
-
+   
 });//closing document.ready function
