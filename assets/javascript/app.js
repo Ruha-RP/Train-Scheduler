@@ -52,27 +52,35 @@ $("#submitInfo").on("click", function(event) {
 	 $("#timeInput").val("");
 	 $("#frequencyInput").val("");
 
+	 });//closing the on-click function
+
 
 	//Monitoring the changes that are being made to the database
-	database.ref().on("child_added", function(snapshot) {
+	database.ref().on("child_added", function(childSnapshot, prevChildKey) {
 
 		//checking if it works, this will give the child
-		console.log(snapshot.val());
+		console.log(childSnapshot.val());
 
 		//console logging each value to check
-		console.log(snapshot.val().name);
-		console.log(snapshot.val().destination);
-		console.log(snapshot.val().time);
-		console.log(snapshot.val().frequency);
+		console.log(childSnapshot.val().name);
+		console.log(childSnapshot.val().destination);
+		console.log(childSnapshot.val().time);
+		console.log(childSnapshot.val().frequency);
 
 		//STEP 4: DISPLAY INPUT ON HTML TABLE
 		//create variables
-		var nameT = snapshot.val().name;
-		var destinationT =snapshot.val().destination;
-		var freqT = snapshot.val().frequency;
+		var nameT = childSnapshot.val().name;
+		var destinationT = childSnapshot.val().destination;
+		var freqT = childSnapshot.val().frequency;
+
+		//STEP 5: CALCULATIONS
+		
+
 
 		//dynamically create a new row that will hold the information
 		$("#train-info > tbody").append("<tr><td>" + nameT + "</td><td>" + destinationT + "</td><td>" + freqT + "</td></tr>");
+
+
 
 	});//closing child added
 
@@ -81,7 +89,7 @@ $("#submitInfo").on("click", function(event) {
 
 
 
-});//closing the on-click function
+
 
 
    
