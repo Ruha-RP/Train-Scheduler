@@ -1,7 +1,7 @@
 //Getting the document ready
 $(document).ready(function() {
 
-//STEP 1:
+//STEP 1: CONNECTING TO FIREBASE
 // Initialize Firebase
 var config = {
 	apiKey: "AIzaSyB44JcP2uAlCtSsazMZql0TmOotmwnGcIo",
@@ -17,7 +17,7 @@ firebase.initializeApp(config);
 //Creating the varaibale for database
 var database = firebase.database();
 
-//STEP 2:
+//STEP 2: THE ON-CLICK BUTTON
 //Creating the on-click function 
 $("#submitInfo").on("click", function(event) {
 
@@ -26,6 +26,29 @@ $("#submitInfo").on("click", function(event) {
 
 	//checking if button works
 	console.log("Submit button has been clicked!");
+
+	//obtaining the user input
+	var trainName = $("#trainInput").val().trim();
+	var destination = $("#destinationInput").val().trim();
+	var trainTime = $("#timeInput").val().trim();
+	var frequency = $("#frequencyInput").val().trim();
+
+
+	//creating an object that will push the values to the database
+	var newTrain = {
+		name: trainName,
+		destination: destination,
+		time: trainTime,
+		frequency : frequency
+	};
+
+	//pushing the object to firebase
+	database.ref().push(newTrain);
+
+	
+
+
+
 
 
 
