@@ -1,6 +1,7 @@
 //Getting the document ready
 $(document).ready(function() {
 
+//STEP 1:
 // Initialize Firebase
 var config = {
 	apiKey: "AIzaSyB44JcP2uAlCtSsazMZql0TmOotmwnGcIo",
@@ -13,9 +14,22 @@ var config = {
 
 firebase.initializeApp(config);
 
-//creating a variable for database
+//Creating the varaibale for database
 var database = firebase.database();
 
+//STEP 2:
+//Creating the on-click function 
+$("#submitInfo").on("click", function(event) {
+
+	//Preventing the form from auto-submitting
+	event.preventDefault();
+
+	//checking if button works
+	console.log("Submit button has been clicked!");
+
+
+
+});//closing the on-click function
 
 
 
