@@ -45,6 +45,12 @@ $("#submitInfo").on("click", function(event) {
 	//pushing the object to firebase
 	database.ref().push(newTrain);
 
+
+	//emptying out the form after submitting
+	 $("#trainInput").val("");
+	 $("#destinationInput").val("");
+	 $("#timeInput").val("");
+	 $("#frequencyInput").val("");
 	
 
 
