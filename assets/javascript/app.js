@@ -51,7 +51,21 @@ $("#submitInfo").on("click", function(event) {
 	 $("#destinationInput").val("");
 	 $("#timeInput").val("");
 	 $("#frequencyInput").val("");
-	
+
+
+	//Monitoring the changes that are being made to the database
+	database.ref().on("child_added", function(snapshot) {
+
+		//checking if it works, this will give the child
+		console.log(snapshot.val());
+
+		// //sending to the html file
+		// $("#train-name").text(train-name);
+		// $("#destination").text(train-name);
+		// $("#frequency").text(train-name);
+
+
+	});
 
 
 
