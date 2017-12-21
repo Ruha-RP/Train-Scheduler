@@ -100,17 +100,10 @@ $("#submitInfo").on("click", function(event) {
 		//dynamically create a new row that will hold the information
 		$("#train-info > tbody").append("<tr><td>" + nameT + "</td><td>" + destinationT + "</td><td>" + freqT + "</td><td>" + moment(nextTrain).format("hh:mm") + "</td><td>" + tMinsTillTrain + "</td></tr>");
 
+		//If any errors are experienced, logging them to console.
+	}, function(errorObject) {
+  	console.log("The read failed: " + errorObject.code);
+});
 
 
-	});//closing child added
-
-
-
-
-
-
-
-
-
-   
 });//closing document.ready function
