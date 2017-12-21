@@ -79,9 +79,6 @@ $("#submitInfo").on("click", function(event) {
 		var firstTConverted = moment(firstT, "hh:mm").subtract(1, "years");
 		console.log("This is converted time: " + firstTConverted);
 
-		 
-		//var currentTime = moment();
-
 
 		//obtaining the difference between the current time and the first time
 		var diffTime = moment().diff(moment(firstTConverted), "minutes");
@@ -94,6 +91,11 @@ $("#submitInfo").on("click", function(event) {
 		//the remainder determines how many minutes have elapsed, to know how many mins left we subtract from the frequency
 		var tMinsTillTrain = freqT - tRemainder;
 		console.log("Minutes till next train: " + tMinsTillTrain);
+
+		//Time to expect the next train
+		var nextTrain = moment().add(tMinsTillTrain, "minutes");
+		console.log("Train arrival time is: " + moment(nextTrain).format("hh:mm"));
+
 
 		//dynamically create a new row that will hold the information
 		$("#train-info > tbody").append("<tr><td>" + nameT + "</td><td>" + destinationT + "</td><td>" + freqT + "</td></tr>");
