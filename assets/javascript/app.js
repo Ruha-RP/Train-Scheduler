@@ -76,8 +76,24 @@ $("#submitInfo").on("click", function(event) {
 
 		//STEP 5: CALCULATIONS
 		//variable for converted firstT, this pushes back 1 year to make sure ot comes before the current time
-		var firstTConverted = 
+		var firstTConverted = moment(firstT, "hh:mm").subtract(1, "years");
+		console.log("This is converted time: " + firstTConverted);
 
+		 
+		//var currentTime = moment();
+
+
+		//obtaining the difference between the current time and the first time
+		var diffTime = moment().diff(moment(firstTConverted), "minutes");
+		console.log("The difference in time is " + diffTime);
+
+		//using the modulus to give the remainder
+		var tRemainder = diffTime % freqT;
+		console.log("The remainder is: " + tRemainder);
+
+		//the remainder determines how many minutes have elapsed, to know how many mins left we subtract from the frequency
+		var tMinsTillTrain = freqT - tRemainder;
+		console.log("Minutes till next train: " + tMinsTillTrain);
 
 		//dynamically create a new row that will hold the information
 		$("#train-info > tbody").append("<tr><td>" + nameT + "</td><td>" + destinationT + "</td><td>" + freqT + "</td></tr>");
