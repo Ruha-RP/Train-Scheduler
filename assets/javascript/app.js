@@ -72,9 +72,11 @@ $("#submitInfo").on("click", function(event) {
 		var nameT = childSnapshot.val().name;
 		var destinationT = childSnapshot.val().destination;
 		var freqT = childSnapshot.val().frequency;
+		var firstT = childSnapshot.val().time;
 
 		//STEP 5: CALCULATIONS
-		
+		//variable for converted firstT, this pushes back 1 year to make sure ot comes before the current time
+		var firstTConverted = 
 
 
 		//dynamically create a new row that will hold the information
